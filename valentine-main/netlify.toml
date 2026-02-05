@@ -1,5 +1,5 @@
 [build]
-base = "valentine-main/app"
+base = "app"
 command = "npm install && npm run build"
 publish = "dist"
 
