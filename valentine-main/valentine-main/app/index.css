@@ -1,0 +1,159 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f8f5f7;
+  color: #0f172a;
+}
+
+.app-shell {
+  background:
+    radial-gradient(900px 600px at 10% -10%, rgba(248, 113, 113, 0.22), transparent 60%),
+    radial-gradient(800px 500px at 95% 0%, rgba(244, 114, 182, 0.18), transparent 60%),
+    radial-gradient(900px 700px at 50% 100%, rgba(125, 211, 252, 0.18), transparent 60%),
+    linear-gradient(180deg, #6b1f3b 0%, #7c2544 45%, #8c2a4c 100%);
+}
+
+.app-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(1200px 900px at 50% 10%, rgba(255, 228, 235, 0.7), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.valentine-3d {
+  position: fixed;
+  inset: -20vh -20vw;
+  z-index: 0;
+  pointer-events: none;
+  perspective: 1200px;
+  filter: saturate(1.1);
+}
+
+.valentine-3d::before,
+.valentine-3d::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(40% 30% at 20% 10%, rgba(244, 63, 94, 0.28), transparent 70%),
+    radial-gradient(35% 28% at 80% 20%, rgba(251, 113, 133, 0.22), transparent 70%),
+    radial-gradient(45% 35% at 50% 80%, rgba(190, 18, 60, 0.2), transparent 70%),
+    conic-gradient(from 120deg, rgba(124, 37, 68, 0.65), rgba(184, 51, 93, 0.25), rgba(124, 37, 68, 0.65));
+  transform-style: preserve-3d;
+  animation: valentine-orbit 28s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+.valentine-3d::after {
+  background:
+    radial-gradient(40% 30% at 15% 70%, rgba(225, 29, 72, 0.22), transparent 70%),
+    radial-gradient(35% 28% at 75% 80%, rgba(244, 114, 182, 0.2), transparent 70%),
+    radial-gradient(40% 30% at 45% 35%, rgba(251, 191, 36, 0.08), transparent 70%),
+    conic-gradient(from 280deg, rgba(88, 24, 50, 0.75), rgba(192, 59, 99, 0.2), rgba(88, 24, 50, 0.75));
+  animation: valentine-orbit 34s ease-in-out infinite reverse;
+  opacity: 0.85;
+}
+
+@keyframes valentine-orbit {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(-80px) scale(1.05);
+  }
+  50% {
+    transform: rotateX(10deg) rotateY(18deg) translateZ(-40px) scale(1.1);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(-80px) scale(1.05);
+  }
+}
+
+/* Typography tone for dark pink background */
+.app-shell :is(h2, h3, h4, .subheading) {
+  color: #fff5f7;
+}
+
+.app-shell :is(p, span, div)[class*="text-xs"],
+.app-shell :is(p, span, div)[class*="text-sm"],
+.app-shell :is(p, span, div)[class*="text-[10px]"],
+.app-shell :is(p, span, div)[class*="text-[11px]"],
+.app-shell :is(p, span, div)[class*="text-[12px]"] {
+  color: #ffffff;
+}
+
+/* Force small text/subheadings to black inside card surfaces */
+.app-shell :is(.glass, .glass-strong, .soft-card, .card-surface, .bg-white, [class*="bg-white"])
+  :is(h2, h3, h4, .subheading) {
+  color: #0f172a;
+}
+
+.app-shell :is(.glass, .glass-strong, .soft-card, .card-surface, .bg-white, [class*="bg-white"])
+  :is(p, span, div)[class*="text-xs"],
+.app-shell :is(.glass, .glass-strong, .soft-card, .card-surface, .bg-white, [class*="bg-white"])
+  :is(p, span, div)[class*="text-sm"],
+.app-shell :is(.glass, .glass-strong, .soft-card, .card-surface, .bg-white, [class*="bg-white"])
+  :is(p, span, div)[class*="text-[10px]"],
+.app-shell :is(.glass, .glass-strong, .soft-card, .card-surface, .bg-white, [class*="bg-white"])
+  :is(p, span, div)[class*="text-[11px]"],
+.app-shell :is(.glass, .glass-strong, .soft-card, .card-surface, .bg-white, [class*="bg-white"])
+  :is(p, span, div)[class*="text-[12px]"] {
+  color: #0f172a;
+}
+
+
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.12);
+}
+
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 32px 90px rgba(15, 23, 42, 0.16);
+}
+
+.soft-card {
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.12),
+    0 6px 20px rgba(15, 23, 42, 0.08);
+}
+
+.glow-ring {
+  box-shadow: 0 0 0 1px rgba(244, 63, 94, 0.15), 0 20px 60px rgba(244, 63, 94, 0.2);
+}
+
+/* Flip card utility */
+.flip-card {
+  width: 100%;
+  height: 100%;
+  perspective: 1200px;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.flip-card.is-flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}

@@ -1,0 +1,10 @@
+{
+  "name": "valentine-main-root",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix \"valentine-main/app\" run dev",
+    "build": "npm --prefix \"valentine-main/app\" run build",
+    "preview": "npm --prefix \"valentine-main/app\" run preview",
+    "postinstall": "npm --prefix \"valentine-main/app\" install"
+  }
+}
